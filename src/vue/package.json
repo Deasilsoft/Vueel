@@ -1,0 +1,22 @@
+{
+  "name": "vue-eel-starter",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service build --watch --mode development",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "bootstrap": "^4",
+    "bootstrap-vue": "^2",
+    "core-js": "^3",
+    "vue": "^2",
+    "vue-router": "^3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4",
+    "@vue/cli-service": "^4",
+    "node-sass": "^6",
+    "sass-loader": "^10",
+    "vue-template-compiler": "^2"
+  }
+}

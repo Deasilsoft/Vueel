@@ -48,3 +48,7 @@ venv.bak/
 ### BASIC NODE GITIGNORE
 # Ignore config and node files.
 node_modules/
+
+### BASIC IDE GITIGNORE
+# Ignore JetBrains IDE files.
+.idea
