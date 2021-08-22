@@ -19,7 +19,7 @@ def print_string(string):
     if len(string) > CHARACTER_MINIMUM:
         print(string)
 
-        return _("Success!")
+        return _("app.success")
 
     return _("app.minimum", minimum=CHARACTER_MINIMUM)
 

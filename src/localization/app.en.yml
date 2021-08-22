@@ -1,3 +1,4 @@
 en:
   hello: "Hello from Python!"
+  success: "Success!"
   minimum: "Too few characters. Please provide more than %{minimum} characters."
