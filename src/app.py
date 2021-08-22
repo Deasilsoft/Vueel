@@ -1,8 +1,10 @@
 import eel
 import i18n
-from win32api import GetSystemMetrics
+from screeninfo import get_monitors
 
+SCREEN_SIZE = tuple(list(map(lambda monitor: (monitor.width, monitor.height), filter(lambda monitor: monitor.is_primary, get_monitors())))[0])
 WINDOW_SIZE = (1200, 800)
+
 CHARACTER_MINIMUM = 3
 
 i18n.load_path.append("localization")
@@ -25,6 +27,6 @@ def print_string(string):
 
 
 eel.init("web")
-eel.start("index.html", size=WINDOW_SIZE, position=(GetSystemMetrics(0) / 2 - WINDOW_SIZE[0] / 2, GetSystemMetrics(1) / 2 - WINDOW_SIZE[1] / 2), options={
+eel.start("index.html", size=WINDOW_SIZE, position=(int(SCREEN_SIZE[0] / 2 - WINDOW_SIZE[0] / 2), int(SCREEN_SIZE[1] / 2 - WINDOW_SIZE[1] / 2)), options={
     "port": 8080
 })
