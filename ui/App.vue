@@ -22,7 +22,7 @@
 
 
 <script>
-import Breadcrumbs from "@/components/Breadcrumbs.vue"
+import Breadcrumbs from "./components/Breadcrumbs.vue"
 
 export default {
   components: {Breadcrumbs}
@@ -30,5 +30,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/sass/main.scss";
+@import "../resources/sass/main.scss";
 </style>

@@ -1,8 +1,7 @@
 {
-  "name": "vue-eel-starter",
-  "private": true,
+  "name": "vueel",
   "scripts": {
-    "serve": "vue-cli-service build --watch --mode development",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {

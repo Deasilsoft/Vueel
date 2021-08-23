@@ -1,54 +1,15 @@
-### BASIC PYTHON GITIGNORE
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# IGNORE PYTHON
+__pycache__
+venv
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Environments
+# IGNORE ENVIRONMENT VARIABLES
 .env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
-### BASIC NODE GITIGNORE
-# Ignore config and node files.
-node_modules/
+# IGNORE NODE
+node_modules
 
-### BASIC IDE GITIGNORE
-# Ignore JetBrains IDE files.
+# IGNORE IDE
 .idea
+
+# IGNORE UI DISTRIBUTION
+storage/ui

@@ -7,7 +7,7 @@ WINDOW_WIDTH, WINDOW_HEIGHT = (1200, 800)
 
 CHARACTER_MINIMUM = 3
 
-i18n.load_path.append("localization")
+i18n.load_path.append("resources/locale")
 _ = i18n.t
 
 
@@ -26,7 +26,7 @@ def print_string(string):
     return _("app.minimum", minimum=CHARACTER_MINIMUM)
 
 
-eel.init("web")
+eel.init("storage/ui")
 eel.start("index.html", size=(WINDOW_WIDTH, WINDOW_HEIGHT), position=(int(SCREEN_WIDTH / 2 - WINDOW_WIDTH / 2), int(SCREEN_HEIGHT / 2 - WINDOW_HEIGHT / 2)), options={
     "port": 8080
 })

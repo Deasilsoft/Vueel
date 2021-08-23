@@ -1,16 +1,8 @@
-# Vue + EEL Starter Pack
+# Deasilsoft/Vueel
 
-This is a framework (in the loosest sense of the word) to create an executable using Eel and Vue.
+This is a framework for creating a Python application with an user interface in [Vue](https://github.com/vuejs/vue) using [Eel](https://github.com/ChrisKnott/Eel).
 
-## Installations
-
-### Production
-
-1. Install `pip` requirements.
-
-       pip install -r requirements.txt
-
-### Development
+## Installation for development
 
 1. Install `pip` requirements.
 
@@ -18,15 +10,20 @@ This is a framework (in the loosest sense of the word) to create an executable u
 
 2. Install `npm` requirements.
 
-       cd vue 
        npm install
 
-## Run the Application
+## Build the application
 
-1. Run `app.py`.
+1. Run `npm run build` to build the app.
+
+       npm run build
+
+## Run the application
+
+1. Run `app.py` to start the app.
 
        python app.py
 
-### Make an Executable
+## Make an executable
 
 Follow instructions on [ChrisKnott/Eel](https://github.com/ChrisKnott/Eel#building-distributable-binary-with-pyinstaller).
