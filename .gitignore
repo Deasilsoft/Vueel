@@ -10,6 +10,3 @@ node_modules
 
 # IGNORE IDE
 .idea
-
-# IGNORE UI DISTRIBUTION
-storage/ui
