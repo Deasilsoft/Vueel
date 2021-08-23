@@ -27,3 +27,7 @@ This is a framework for creating a Python application with an user interface in 
 ## Make an executable
 
 Follow instructions on [ChrisKnott/Eel](https://github.com/ChrisKnott/Eel#building-distributable-binary-with-pyinstaller).
+
+## Credits
+
+Credit to [smketterer/vue-eel-starter](https://github.com/smketterer/vue-eel-starter).
