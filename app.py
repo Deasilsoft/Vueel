@@ -2,8 +2,8 @@ import eel
 import i18n
 from screeninfo import get_monitors
 
-SCREEN_SIZE = tuple(list(map(lambda monitor: (monitor.width, monitor.height), filter(lambda monitor: monitor.is_primary, get_monitors())))[0])
-WINDOW_SIZE = (1200, 800)
+SCREEN_WIDTH, SCREEN_HEIGHT = [(m.width, m.height) for m in get_monitors() if m.is_primary][0]
+WINDOW_WIDTH, WINDOW_HEIGHT = (1200, 800)
 
 CHARACTER_MINIMUM = 3
 
@@ -27,6 +27,6 @@ def print_string(string):
 
 
 eel.init("web")
-eel.start("index.html", size=WINDOW_SIZE, position=(int(SCREEN_SIZE[0] / 2 - WINDOW_SIZE[0] / 2), int(SCREEN_SIZE[1] / 2 - WINDOW_SIZE[1] / 2)), options={
+eel.start("index.html", size=(WINDOW_WIDTH, WINDOW_HEIGHT), position=(int(SCREEN_WIDTH / 2 - WINDOW_WIDTH / 2), int(SCREEN_HEIGHT / 2 - WINDOW_HEIGHT / 2)), options={
     "port": 8080
 })

@@ -1,24 +1,29 @@
 # Vue + EEL Starter Pack
 
-This README and the repository is W.I.P., please hold on.
+This is a framework (in the loosest sense of the word) to create an executable using Eel and Vue.
 
 ## Installations
 
 ### Production
 
-Install venv and pip.
+1. Install `pip` requirements.
+
+       pip install -r requirements.txt
 
 ### Development
 
-Install venv, pip and npm.
+1. Install `pip` requirements.
+
+       pip install -r requirements.txt
+
+2. Install `npm` requirements.
+
+       cd vue 
+       npm install
 
 ## Run the Application
 
-1. Go to `src`
-
-       cd src
-
-2. Run `app.py`
+1. Run `app.py`.
 
        python app.py
 
