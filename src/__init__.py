@@ -1,27 +1,33 @@
 import eel
-from screeninfo import get_monitors
 
-from vueel import getDB, L
+from vueel import config, DB, T
+from . import constants
 
-getDB().close()
+# Close the DB connection
+DB.close()
 
-# TODO: MOVE SCREEN_SIZE AND WINDOW_SIZE HANDLING TO VUEEL CONFIGURATION
-SCREEN_SIZE = [(m.width, m.height) for m in get_monitors() if m.is_primary][0]
-WINDOW_SIZE = (1200, 800)
-
-CHARACTER_MINIMUM = 3
+# Set language to Norwegian
+config.set("language", "no")
 
 
+# TODO: make behaviour like this inherit from vueel
+@eel.expose
+def language():
+    return config.get("language")
+
+
+# Expose function to the UI
 @eel.expose
 def hello_world_python():
-    return L("app.hello")
+    return T("app.hello")
 
 
+# Expose function to the UI
 @eel.expose
 def print_string(string):
-    if len(string) > CHARACTER_MINIMUM:
+    if len(string) > constants.CHARACTER_MINIMUM:
         print(string)
 
-        return L("app.success")
+        return T("app.success")
 
-    return L("app.minimum", minimum=CHARACTER_MINIMUM)
+    return T("app.minimum", minimum=constants.CHARACTER_MINIMUM)

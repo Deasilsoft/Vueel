@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Vue + EEL Starter Pack</title>
+    <title>Vueel</title>
     <script type=text/javascript src=/eel.js></script>
+    <script type="text/javascript">
+        <!-- TODO: make this work (it's currently NOT working) and make behaviour like this inherit with vueel -->
+        document.getElementsByTagName("html")[0].setAttribute("lang", eel.language())
+    </script>
 </head>
 <body>
-<noscript>
-    <strong>JavaScript activated in Google Chrome is required to run this application.</strong>
-</noscript>
+<noscript><strong>JavaScript has to be activated in this browser to run the application.</strong></noscript>
 <div id="app"></div>
 </body>
 </html>

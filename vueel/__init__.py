@@ -1,2 +1,6 @@
-from .localization import L
-from .sqlite import getDB
+from .config import Config
+
+config = Config()
+
+from .localization import T
+from .sqlite import DB
