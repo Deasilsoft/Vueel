@@ -1,16 +1,20 @@
-from typing import Dict
-
+import eel
 from screeninfo import get_monitors
 
 
 class Config:
+    """Configuration class."""
 
-    def __init__(self, callbacks: Dict[str, callable] = None):
+    __callbacks = None
+    __cache = None
+
+    @staticmethod
+    def reset():
         dimension = (1200, 800)
         position = [(m.width / 2 - dimension[0] / 2, m.height / 2 - dimension[1] / 2) for m in get_monitors() if m.is_primary][0]
 
-        self.callbacks = {} if callbacks is None else callbacks
-        self.config = {
+        Config.__callbacks = {}
+        Config.__cache = {
             "dimension": dimension,
             "position": position,
             "language": "en",
@@ -19,7 +23,8 @@ class Config:
             }
         }
 
-    def set(self, key: str, value: any):
+    @staticmethod
+    def set(key: str, value: any):
         """
         Set a configuration value.
 
@@ -27,10 +32,11 @@ class Config:
         :param value: Configuration value.
         """
 
-        if key not in self.callbacks or key in self.callbacks and self.callbacks[key](value):
-            self.config[key] = value
+        if key not in Config.__callbacks or key in Config.__callbacks and Config.__callbacks[key](value):
+            Config.__cache[key] = value
 
-    def get(self, key: str) -> any:
+    @staticmethod
+    def get(key: str) -> any:
         """
         Get a value from the configuration.
 
@@ -38,10 +44,21 @@ class Config:
         :return: Configuration value.
         """
 
-        return self.config[key]
+        return Config.__cache[key]
 
-    def setCallback(self, key: str, callback: callable):
-        self.callbacks[key] = callback
+    @staticmethod
+    def setCallback(key: str, callback: callable):
+        Config.__callbacks[key] = callback
 
-    def unsetCallback(self, key: str) -> callable:
-        return self.callbacks.pop(key)
+    @staticmethod
+    def unsetCallback(key: str) -> callable:
+        return Config.__callbacks.pop(key)
+
+
+@eel.expose
+def C(key: str):
+    """Get configuration value associated with key."""
+    return Config.get(key)
+
+
+Config.reset()

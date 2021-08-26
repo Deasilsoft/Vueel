@@ -1,19 +1,13 @@
 import eel
 
-from vueel import config, DB, T
+from vueel import Config, DB, T
 from . import constants
 
 # Close the DB connection
 DB.close()
 
 # Set language to Norwegian
-config.set("language", "no")
-
-
-# TODO: make behaviour like this inherit from vueel
-@eel.expose
-def language():
-    return config.get("language")
+Config.set("language", "no")
 
 
 # Expose function to the UI

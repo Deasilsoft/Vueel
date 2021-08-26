@@ -1,3 +1,4 @@
 hello: "Hei fra Python!"
 success: "Suksess!"
 minimum: "For få karakterer. Vær vennlig å oppgi flere enn %{minimum} karakterer."
+no javascript: "JavaScript må være aktivert i nettleseren for å kjøre appen."

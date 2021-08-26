@@ -1,7 +1,7 @@
 import eel
 
 import src
-from vueel import config
+from vueel import C
 
 if src:
 
@@ -9,4 +9,4 @@ if src:
     eel.init("storage/ui")
 
     # RUN THE UI WITH EEL
-    eel.start("index.html", size=config.get("dimension"), position=config.get("position"), options=config.get("server"))
+    eel.start("index.html", size=C("dimension"), position=C("position"), options=C("server"))
