@@ -1,4 +1,6 @@
 hello: "Hello from Python!"
 success: "Success!"
-minimum: "Too few characters. Please provide more than %{minimum} characters."
-no javascript: "JavaScript has to be activated in this browser to run the app."
+minimum: "Too few characters. Please provide %{minimum} or more characters."
+home: "Home"
+about: "About"
+about message: "The about page..."

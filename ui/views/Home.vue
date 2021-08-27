@@ -8,12 +8,26 @@
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld.vue"
+import HelloWorld from "../components/HelloWorld.vue";
 
 export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          active: true,
+          link: "/",
+          text: "Home"
+        }
+      ]
+    };
+  },
+  mounted() {
+    eel.T("app.home")(value => this.breadcrumbs[0].text = value);
   }
-}
+};
 </script>
