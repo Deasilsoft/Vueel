@@ -2,83 +2,75 @@
   <div id="app" class="d-flex flex-column justify-content-between min-vh-100">
     <div id="from-the-top">
       <header>
-        <nav class="navbar navbar-expand navbar-light bg-light mb-2">
-          <div class="container">
-            <router-link to="/" class="navbar-brand">Vueel</router-link>
-            <ul class="navbar-nav mr-auto">
-              <li v-for="link in navigation.links" v-bind:class="link.class">
-                <router-link v-bind:to="link.link" class="nav-link">
-                  <span>{{ link.text }}</span>
-                  <span v-if="link.active" class="sr-only">(current)</span>
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <breadcrumbs :breadcrumbs="breadcrumbs"/>
+        <b-navbar type="light" variant="light" class="mb-2">
+          <b-container>
+            <b-navbar-brand to="/home">{{ title }}</b-navbar-brand>
+            <b-navbar-nav class="mr-auto">
+              <b-nav-item v-for="item in navigation" :key="item.order" :to="item.path">
+                <span>{{ item.text }}</span>
+              </b-nav-item>
+            </b-navbar-nav>
+          </b-container>
+        </b-navbar>
+        <b-container v-if="breadcrumbs.length > 0">
+          <b-breadcrumb :items="breadcrumbs" class="bg-light mb-2"/>
+        </b-container>
       </header>
-      <main class="container mb-2">
+      <b-container tag="main" class="mb-2">
         <router-view/>
-      </main>
+      </b-container>
     </div>
     <div id="from-the-bottom">
       <footer class="bg-light p-5">
-        <div class="container">
+        <b-container>
           <span>Copyright &copy; Vueel {{ year }}</span>
-        </div>
+        </b-container>
       </footer>
     </div>
   </div>
 </template>
 
-
 <script>
-import Breadcrumbs from "./components/Breadcrumbs.vue"
+import Breadcrumbs from "./mixins/Breadcrumbs.js"
+import Vueel from "./mixins/Vueel";
 
 export default {
-  components: {
+  mixins: [
+    Vueel,
     Breadcrumbs
-  },
+  ],
   data() {
     return {
+      title: "",
       year: new Date().getFullYear(),
-      breadcrumbs: Array,
-      navigation: {
-        classes: {
-          active: "nav-item active",
-          default: "nav-item"
-        },
-        links: [
-          {
-            active: true,
-            link: "/",
-            text: "Home"
-          },
-          {
-            active: false,
-            link: "/about",
-            text: "About"
-          }
-        ]
-      }
+      navigation: []
     };
   },
-  beforeCreate() {
-    eel.C("language")(value => document.documentElement.setAttribute("lang", value));
+  async mounted() {
+    // SET LANG IN HTML
+    document.documentElement.setAttribute("lang", await this.C("language"));
+
+    this.title = await this.T("app.vueel");
+
+    // ADD NAVIGATION LINKS
+    for (const route of this.$router.options.routes.filter(route => route.navigation.show)) {
+      this.navigation.push({
+        order: route.navigation.order,
+        text: await this.T("app." + route.name),
+        path: route.path,
+      });
+    }
   },
-  mounted() {
-    eel.T("app.home")(value => this.navigation.links[0].text = value);
-    eel.T("app.about")(value => this.navigation.links[1].text = value);
-  },
-  methods: {
-    loadBreadcrumbs() {
-      // TODO: load current view's breadcrumbs
-    },
-    onNavigation() {
-      // TODO: fix active link
+  watch: {
+    $route(to, from) {
+      // CLEAR OLD BREADCRUMBS
+      this.clearBreadcrumbs();
+
+      // ADD BREADCRUMB LINKS
+      for (const breadcrumb of this.$router.options.routes.find(route => route.name === to.name).breadcrumbs) this.addBreadcrumb(breadcrumb);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

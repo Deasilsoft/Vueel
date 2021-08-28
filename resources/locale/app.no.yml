@@ -1,6 +1,8 @@
 hello: "Hei fra Python!"
 success: "Suksess!"
 minimum: "For få karakterer. Vær vennlig å oppgi %{minimum} eller flere karakterer."
+vueel: "Vueel"
 home: "Hjem"
 about: "Om oss"
+send: "Send melding"
 about message: "Om oss siden..."

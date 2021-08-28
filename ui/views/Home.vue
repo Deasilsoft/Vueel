@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="text-center">
-      <img alt="Vue Logo" src="../../resources/images/vue-logo.png">
+    <div class="d-flex flex-row justify-content-around my-5">
+      <img style="height: 150px" alt="Vue Logo" src="../../resources/images/vue-logo.png">
+      <img style="height: 150px" alt="Python Logo" src="../../resources/images/python-logo.png">
     </div>
     <HelloWorld/>
   </div>
@@ -11,23 +12,8 @@
 import HelloWorld from "../components/HelloWorld.vue";
 
 export default {
-  name: "home",
   components: {
     HelloWorld
-  },
-  data() {
-    return {
-      breadcrumbs: [
-        {
-          active: true,
-          link: "/",
-          text: "Home"
-        }
-      ]
-    };
-  },
-  mounted() {
-    eel.T("app.home")(value => this.breadcrumbs[0].text = value);
   }
 };
 </script>

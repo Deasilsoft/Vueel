@@ -1,6 +1,8 @@
 hello: "Hello from Python!"
 success: "Success!"
 minimum: "Too few characters. Please provide %{minimum} or more characters."
+vueel: "Vueel"
 home: "Home"
 about: "About"
+send: "Send message"
 about message: "The about page..."

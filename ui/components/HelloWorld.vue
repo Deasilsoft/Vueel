@@ -1,32 +1,38 @@
 <template>
-  <div class="hello">
-    <h1>{{ message }}</h1>
+  <div>
+    <h1>{{ hello }}</h1>
     <form method="POST">
-      <div class="row">
-        <div class="col">
-          <input type="text" v-model="input" class="form-control">
-        </div>
-        <div class="col-auto">
-          <button @click="onClick" class="btn btn-primary">Send</button>
-        </div>
-      </div>
+      <b-row>
+        <b-col>
+          <b-form-input trim v-model="input"/>
+        </b-col>
+        <b-col cols="auto">
+          <b-button type="submit" variant="primary" @click="onClick">{{ send }}</b-button>
+        </b-col>
+      </b-row>
     </form>
     <div>{{ response }}</div>
   </div>
 </template>
 
 <script>
+import Vueel from "../mixins/Vueel";
+
 export default {
-  name: "HelloWorld",
+  mixins: [
+    Vueel
+  ],
   data() {
     return {
-      message: "",
+      hello: "",
+      send: "",
       input: "",
       response: ""
     };
   },
-  mounted() {
-    eel.T("app.hello")(value => this.message = value);
+  async mounted() {
+    this.hello = await this.T("app.hello");
+    this.send = await this.T("app.send");
   },
   methods: {
     onClick(e) {
@@ -34,5 +40,5 @@ export default {
       eel.communicate(this.input)(value => this.response = value);
     }
   }
-}
+};
 </script>
