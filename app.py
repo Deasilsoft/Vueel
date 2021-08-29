@@ -1,9 +1,11 @@
+import types
+
 import eel
 
 import src
 from vueel import C
 
-if src:
+if isinstance(src, types.ModuleType):
 
     # LOAD THE PRE-BUILT UI
     eel.init("storage/ui")

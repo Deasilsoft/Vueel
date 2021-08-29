@@ -37,7 +37,7 @@ export default {
   methods: {
     onClick(e) {
       e.preventDefault();
-      eel.communicate(this.input)(value => this.response = value);
+      window.eel.communicate(this.input)(value => this.response = value);
     }
   }
 };

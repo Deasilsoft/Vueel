@@ -11,7 +11,7 @@ export default {
         async T(key) {
             if (key in this.vueel.Ts) return this.vueel.Ts[key];
 
-            const value = await eel.T(key)();
+            const value = await window.eel.T(key)();
             this.vueel.Ts[key] = value;
 
             return value;
@@ -19,7 +19,7 @@ export default {
         async C(key) {
             if (key in this.vueel.Cs) return this.vueel.Cs[key];
 
-            const value = await eel.C(key)();
+            const value = await window.eel.C(key)();
             this.vueel.Cs[key] = value;
 
             return value;

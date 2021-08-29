@@ -20,10 +20,10 @@ def callback(language: str):
 
 
 # Set callback to config key "language"
-Config.setCallback("language", callback)
+Config.set_callback("language", callback)
 
 
 @eel.expose
 def T(key, **kwargs):
-    """Replace key string with the translation to the selected language (if language is available; default language if it's unavailable is english)."""
+    """Get language string from key, insert arguments into string where applicable."""
     return i18n.t(key, **kwargs)
