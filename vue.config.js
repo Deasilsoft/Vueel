@@ -6,4 +6,10 @@ module.exports = {
         },
     },
     outputDir: "storage/ui",
+    css: {
+        extract: true,
+    },
+    devServer: {
+        writeToDisk: true,
+    }
 }

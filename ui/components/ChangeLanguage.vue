@@ -42,7 +42,9 @@ export default {
     onClick(e)
     {
       e.preventDefault();
+
       window.eel.change_language(this.locale)();
+
       location.reload();
     }
   }

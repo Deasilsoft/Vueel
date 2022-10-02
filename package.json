@@ -2,7 +2,8 @@
   "name": "vueel",
   "version": "2021.08.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "npm run watch",
+    "watch": "vue-cli-service build --mode development --watch",
     "build": "vue-cli-service build"
   },
   "dependencies": {
