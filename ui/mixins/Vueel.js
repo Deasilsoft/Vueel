@@ -1,5 +1,6 @@
 export default {
-    data() {
+    data()
+    {
         return {
             vueel: {
                 Ts: {},
@@ -7,24 +8,36 @@ export default {
             }
         };
     },
-    methods: {
-        async T(key) {
-            if (key in this.vueel.Ts) return this.vueel.Ts[key];
 
-            const value = await window.eel.T(key)();
+    methods: {
+        async T(key)
+        {
+            if (key in this.vueel.Ts)
+            {
+                return this.vueel.Ts[key];
+            }
+
+            const value        = await window.eel.T(key)();
             this.vueel.Ts[key] = value;
 
             return value;
         },
-        async C(key) {
-            if (key in this.vueel.Cs) return this.vueel.Cs[key];
 
-            const value = await window.eel.C(key)();
+        async C(key)
+        {
+            if (key in this.vueel.Cs)
+            {
+                return this.vueel.Cs[key];
+            }
+
+            const value        = await window.eel.C(key)();
             this.vueel.Cs[key] = value;
 
             return value;
         },
-        clear() {
+
+        clear()
+        {
             this.vueel.Ts = {};
             this.vueel.Cs = {};
         }

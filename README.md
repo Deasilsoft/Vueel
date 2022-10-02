@@ -2,7 +2,7 @@
 
 This is a framework for creating a Python application with an user interface in [Vue](https://github.com/vuejs/vue) using [Eel](https://github.com/ChrisKnott/Eel).
 
-[![Code Inspector Score](https://www.code-inspector.com/project/27032/score/svg)](https://frontend.code-inspector.com/project/27032/dashboard)
+[![Code Inspector Score](https://api.codiga.io/project/27032/score/svg)](https://app.codiga.io/hub/project/27032/Vueel)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/deasilsoft/Vueel/master?label=CodeFactor&logo=codefactor&logoWidth=18)](https://www.codefactor.io/repository/github/deasilsoft/Vueel)
 [![LGTM Alerts](https://img.shields.io/lgtm/alerts/github/Deasilsoft/Vueel?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Deasilsoft/Vueel/context:python)  
 [![Github Watchers](https://img.shields.io/github/watchers/deasilsoft/Vueel?logo=github&logoWidth=18)](https://github.com/Deasilsoft/Vueel/watchers)
@@ -40,4 +40,4 @@ Follow instructions on [ChrisKnott/Eel](https://github.com/ChrisKnott/Eel#buildi
 
 ## Credits
 
-Credit to [smketterer/vue-eel-starter](https://github.com/smketterer/vue-eel-starter).
+Credit to [smketterer/vue-eel-starter](https://github.com/smketterer/vue-eel-starter) for starting this.

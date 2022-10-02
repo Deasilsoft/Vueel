@@ -4,13 +4,17 @@ export default {
     mixins: [
         Vueel
     ],
-    data() {
+
+    data()
+    {
         return {
             breadcrumbs: [],
         };
     },
+
     methods: {
-        async addBreadcrumb(name) {
+        async addBreadcrumb(name)
+        {
             const route = this.$router.options.routes.find(route => route.name === name);
 
             this.breadcrumbs.push({
@@ -18,7 +22,9 @@ export default {
                 to: route.path,
             });
         },
-        clearBreadcrumbs() {
+
+        clearBreadcrumbs()
+        {
             this.breadcrumbs = [];
         }
     }

@@ -32,28 +32,33 @@
 
 <script>
 import Breadcrumbs from "./mixins/Breadcrumbs.js"
-import Vueel from "./mixins/Vueel";
+import Vueel       from "./mixins/Vueel";
 
 export default {
   mixins: [
     Vueel,
     Breadcrumbs
   ],
-  data() {
+
+  data()
+  {
     return {
       title: "",
       year: new Date().getFullYear(),
       navigation: []
     };
   },
-  async mounted() {
+
+  async mounted()
+  {
     // SET LANG IN HTML
     document.documentElement.setAttribute("lang", await this.C("language"));
 
     this.title = await this.T("app.vueel");
 
     // ADD NAVIGATION LINKS
-    for (const route of this.$router.options.routes.filter(route => route.navigation.show)) {
+    for (const route of this.$router.options.routes.filter(route => route.navigation.show))
+    {
       this.navigation.push({
         order: route.navigation.order,
         text: await this.T("app." + route.name),
@@ -61,13 +66,18 @@ export default {
       });
     }
   },
+
   watch: {
-    $route(to, from) {
+    $route(to, from)
+    {
       // CLEAR OLD BREADCRUMBS
       this.clearBreadcrumbs();
 
       // ADD BREADCRUMB LINKS
-      for (const breadcrumb of this.$router.options.routes.find(route => route.name === to.name).breadcrumbs) this.addBreadcrumb(breadcrumb);
+      for (const breadcrumb of this.$router.options.routes.find(route => route.name === to.name).breadcrumbs)
+      {
+        this.addBreadcrumb(breadcrumb);
+      }
     }
   }
 };

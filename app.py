@@ -11,4 +11,4 @@ if isinstance(src, types.ModuleType):
     eel.init("storage/ui")
 
     # RUN THE UI WITH EEL
-    eel.start("index.html", size=C("dimension"), position=C("position"), options=C("server"))
+    eel.start("index.html", size=C("dimension"), position=C("position"), port=C("port"))

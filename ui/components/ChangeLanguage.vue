@@ -1,17 +1,18 @@
 <template>
   <div>
-    <h1>{{ hello_text }}</h1>
     <form method="POST">
       <b-row>
         <b-col>
-          <b-form-input trim v-model="input"/>
+          <b-form-select v-model="locale">
+            <b-form-select-option value="en">English</b-form-select-option>
+            <b-form-select-option value="no">Norsk</b-form-select-option>
+          </b-form-select>
         </b-col>
         <b-col cols="auto">
           <b-button type="submit" variant="primary" @click="onClick">{{ button_text }}</b-button>
         </b-col>
       </b-row>
     </form>
-    <div>{{ response_text }}</div>
   </div>
 </template>
 
@@ -26,33 +27,23 @@ export default {
   data()
   {
     return {
-      hello_text: "",
+      locale: "",
       button_text: "",
-      response_text: "",
-      input: "",
-      timeout: null,
     };
   },
 
   async mounted()
   {
-    this.hello_text  = await this.T("app.hello");
-    this.button_text = await this.T("app.send");
+    this.locale      = await this.C("language");
+    this.button_text = await this.T("app.change language");
   },
 
   methods: {
     onClick(e)
     {
       e.preventDefault();
-
-      window.eel.communicate(this.input)(value => this.response_text = value);
-
-      if (this.timeout !== null)
-      {
-        clearTimeout(this.timeout);
-      }
-
-      this.timeout = setTimeout(() => this.response_text = "", 5000);
+      window.eel.change_language(this.locale)();
+      location.reload();
     }
   }
 };

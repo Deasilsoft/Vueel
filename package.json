@@ -14,10 +14,10 @@
     "vue-router": "^3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4",
-    "@vue/cli-service": "^4",
-    "node-sass": "^6",
-    "sass-loader": "^10",
+    "@vue/cli-plugin-babel": "^5",
+    "@vue/cli-service": "^5",
+    "node-sass": "^7",
+    "sass-loader": "^13",
     "vue-template-compiler": "^2"
   }
 }

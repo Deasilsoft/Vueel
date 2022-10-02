@@ -1,6 +1,6 @@
 import eel
 
-from vueel import Config, DB, T
+from vueel import Config, DB, localization, T
 from . import constants
 
 # Close the DB connection
@@ -19,3 +19,9 @@ def communicate(string):
         return T("app.success")
 
     return T("app.minimum", minimum=constants.CHARACTER_MINIMUM)
+
+
+@eel.expose
+def change_language(locale):
+    if locale in localization.available():
+        Config.set("language", locale)

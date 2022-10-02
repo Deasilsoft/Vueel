@@ -24,9 +24,7 @@ class Config:
                 "dimension": dimension,
                 "position": position,
                 "language": "en",
-                "server": {
-                    "port": 8080
-                }
+                "port": 8080,
             }
 
             Config.__is_init = True
