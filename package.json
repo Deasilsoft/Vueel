@@ -10,7 +10,7 @@
     "bootstrap": "^4",
     "bootstrap-vue": "^2",
     "core-js": "^3",
-    "jquery": "^3",
+    "jquery": "^3.6.4",
     "vue": "^2",
     "vue-router": "^3"
   },
